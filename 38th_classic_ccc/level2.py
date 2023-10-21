@@ -67,18 +67,18 @@ def get_shortest_path(prev, start, end):
 
 
 def main():
-    with open("level2/level2_1.in") as file:
+    with open("level2/level2_5.in") as file:
         map_size = int(file.readline())
         matrix = list()
         for _ in range(map_size):
             matrix.append(list(file.readline().strip()))
         nr_coordinates = int(file.readline())
-        output = open('level2/level2_1.out', 'w')
+        output = open('level2/level2_5.out', 'w')
         for _ in range(nr_coordinates):
             coordinates = file.readline().split()
             coordinates[0] = coordinates[0].split(',')
             coordinates[1] = coordinates[1].split(',')
-            print((int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
+            # print((int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
             lee_algorithm(matrix, (int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
             if(lee_algorithm(matrix,(int(coordinates[0][1]),int(coordinates[0][0])),(int(coordinates[1][1]),int(coordinates[1][0])))):
                 output.write("SAME")
@@ -86,6 +86,6 @@ def main():
                 output.write("DIFFERENT")
             output.write("\n")
         output.close()
-        output.close()
+
 if __name__ == '__main__':
     main()

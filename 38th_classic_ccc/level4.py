@@ -77,28 +77,28 @@ def get_shortest_path(prev, start, end):
 
 
 def main():
-    with open("level4/level4_example.in") as file:
+    with open("level4/level4_5.in") as file:
         map_size = int(file.readline())
         matrix = list()
         for _ in range(map_size):
             matrix.append(list(file.readline().strip()))
         nr_coordinates = int(file.readline())
-        output = open('level4/level4_ex.out', 'w')
+        output = open('level4/level4_5.out', 'w')
         for _ in range(nr_coordinates):
             coordinates = file.readline().split()
             coordinates[0] = coordinates[0].split(',')
             coordinates[1] = coordinates[1].split(',')
-            print((int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
+            # print((int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
             path = lee_algorithm(matrix, (int(coordinates[0][1]), int(coordinates[0][0])), (int(coordinates[1][1]), int(coordinates[1][0])))
-            print(' '.join([str(t) for t in path]))
+            # print(' '.join([str(t) for t in path]))
             if path != None and len(path) !=map_size*2:
                 # output.write(path)
                 for tuple in path:
-                    print(str(tuple[1])+","+str(tuple[0]))
+                    # print(str(tuple[1])+","+str(tuple[0]))
                     output.write(str(tuple[1])+","+str(tuple[0])+" ")
 
             output.write("\n")
         output.close()
-        output.close()
+
 if __name__ == '__main__':
     main()

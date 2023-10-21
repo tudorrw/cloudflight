@@ -109,8 +109,8 @@ def main():
             coordinates = file.readline().split(',')
             borders = lee_algorithm(matrix, (int(coordinates[0]), int(coordinates[1])))
             path = pathing(borders)
-
             print(path)
+            
         output.close()
 if __name__ == '__main__':
     main()
